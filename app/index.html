@@ -1,11 +1,454 @@
-</DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>DevOps project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaka Store Shamshu | Grocery & Provision Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f8f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #176b3a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd54f;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            background: linear-gradient(120deg, #e7f6e9, #fff8df);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #176b3a;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            background: #176b3a;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0e4d29;
+        }
+
+        /* Common Section */
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #176b3a;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .category .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            color: #176b3a;
+            margin-bottom: 8px;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .product .product-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #176b3a;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* About */
+        .about {
+            background: #176b3a;
+            color: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+            font-size: 17px;
+        }
+
+        /* Footer */
+        footer {
+            background: #123c26;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello from my DevOps Project!</h1>
-    <p>Deployed using AWS and DevOps.</p>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            KAKA STORE <span>SHAMSHU</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>Kaka Store Shamshu</h1>
+
+            <h2>Your Everyday Grocery & Provision Store</h2>
+
+            <p>
+                Quality groceries, daily essentials and household products
+                at affordable prices. Everything you need for your home,
+                available under one roof.
+            </p>
+
+            <a href="#products" class="button">
+                Explore Products
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- Categories -->
+    <section id="categories">
+
+        <h2 class="section-title">
+            Shop by Category
+        </h2>
+
+        <div class="categories">
+
+            <div class="category">
+                <div class="icon">🌾</div>
+                <h3>Rice & Grains</h3>
+                <p>Rice, wheat, flour and grains</p>
+            </div>
+
+            <div class="category">
+                <div class="icon">🥫</div>
+                <h3>Groceries</h3>
+                <p>Oil, sugar, spices and pulses</p>
+            </div>
+
+            <div class="category">
+                <div class="icon">🥛</div>
+                <h3>Dairy Products</h3>
+                <p>Milk, curd, butter and more</p>
+            </div>
+
+            <div class="category">
+                <div class="icon">🧹</div>
+                <h3>Home Essentials</h3>
+                <p>Cleaning and household products</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Products -->
+    <section id="products">
+
+        <h2 class="section-title">
+            Popular Products
+        </h2>
+
+        <div class="products">
+
+            <div class="product">
+                <div class="product-icon">🍚</div>
+                <h3>Rice</h3>
+                <p>Quality everyday rice</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🫘</div>
+                <h3>Pulses & Dal</h3>
+                <p>Fresh pulses and dals</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🫗</div>
+                <h3>Cooking Oil</h3>
+                <p>Everyday cooking essentials</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🧂</div>
+                <h3>Spices & Salt</h3>
+                <p>Spices for every kitchen</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🍪</div>
+                <h3>Biscuits & Snacks</h3>
+                <p>Snacks for every occasion</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🧼</div>
+                <h3>Cleaning Products</h3>
+                <p>Home cleaning essentials</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🧴</div>
+                <h3>Personal Care</h3>
+                <p>Daily personal care products</p>
+                <div class="price">Best Price</div>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🥤</div>
+                <h3>Beverages</h3>
+                <p>Drinks and refreshments</p>
+                <div class="price">Best Price</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>About Kaka Store Shamshu</h2>
+
+        <p>
+            Kaka Store Shamshu is your trusted local provision and grocery
+            store. We provide everyday groceries, food items, household
+            essentials and personal care products with a focus on quality,
+            convenience and customer satisfaction.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="section-title">
+            Visit Kaka Store Shamshu
+        </h2>
+
+        <div class="contact-box">
+
+            <p>🛒 <strong>Fresh Groceries & Daily Essentials</strong></p>
+
+            <p>📍 Visit our store for your everyday shopping needs</p>
+
+            <p>📞 Contact us for product availability and enquiries</p>
+
+            <p>🕒 Open Daily</p>
+
+            <a href="tel:+919999999999" class="button">
+                Call Store
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Kaka Store Shamshu. All Rights Reserved.
+        </p>
+
+        <p>
+            Your Local Grocery & Provision Store
+        </p>
+
+    </footer>
+
 </body>
 </html>
-
